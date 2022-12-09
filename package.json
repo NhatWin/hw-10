@@ -9,5 +9,21 @@
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^28.0.0",
     "vite": "^3.1.6"
+  },
+  "description": "This includes webhint, stylelint, and prettier.",
+  "version": "1.0.0",
+  "main": "prettier.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NhatWin/hw-10.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NhatWin/hw-10/issues"
+  },
+  "homepage": "https://github.com/NhatWin/hw-10#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
   }
 }
