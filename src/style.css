@@ -1,3 +1,16 @@
+header {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 70px;
+  border: 5px solid #fff;
+  border-radius: 25px;
+  padding: 10px;
+  width: 35%;
+}
+
 section {
   display: flex;
   justify-content: center;
@@ -13,11 +26,11 @@ section {
 }
 
 .team h2 {
-  font-size: 30px;
+  font-size: 40px;
+  font-family: "Martian Mono", monospace;
   background-color: #ffc107;
   color: #fff;
   margin: 0;
-  padding-bottom: 4px;
 }
 
 .team p {
@@ -26,6 +39,7 @@ section {
   border-radius: 25px;
   margin: 5px;
   font-size: 18px;
+  font-family: Rubik, sans-serif;
   padding-left: 10px;
 }
 
@@ -34,4 +48,13 @@ main {
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
+}
+
+img {
+  margin: 0;
+  padding-bottom: 6px;
+  padding-left: 3px;
+  padding-right: 3px;
+  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(112deg)
+    brightness(99%) contrast(103%);
 }
