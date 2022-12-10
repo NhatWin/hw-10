@@ -1,6 +1,8 @@
 const inquirer = require("inquirer");
 const prompt = inquirer.createPromptModule();
 
+const fs = require("fs");
+
 const leaderQuestions = [
   {
     type: "input",
@@ -89,8 +91,9 @@ const internQuestions = [
 ];
 
 const createTeamLead = () => {
-  prompt(leaderQuestions).then((data) => {
-    createTeam(data);
+  prompt(leaderQuestions).then((manager) => {
+    createLeadCard(manager);
+    createTeam(manager);
   });
 };
 
@@ -107,5 +110,7 @@ const createTeam = (data) => {
     console.log("All done!");
   }
 };
+
+const createLeadCard = (manager) => {};
 
 createTeamLead();
