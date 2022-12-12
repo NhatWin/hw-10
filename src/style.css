@@ -30,7 +30,7 @@ section {
   font-family: "Martian Mono", monospace;
   background-color: #ffc107;
   color: #fff;
-  margin: 0;
+  margin: -1px;
 }
 
 .team p {
