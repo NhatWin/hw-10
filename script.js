@@ -1,8 +1,6 @@
 const inquirer = require("inquirer");
 const prompt = inquirer.createPromptModule();
 
-const fs = require("fs");
-
 const leaderQuestions = [
   {
     type: "input",
@@ -13,16 +11,37 @@ const leaderQuestions = [
     type: "number",
     name: "managerId",
     message: "What is the manager's employ ID?",
+    validate: (answer) => {
+      if (isNaN(answer)) {
+        return "Pleas enter a number";
+      } else {
+        return true;
+      }
+    },
   },
   {
     type: "input",
     name: "managerEmail",
     message: "What is the manager's email?",
+    validate: (answer) => {
+      if (answer.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)) {
+        return true;
+      } else {
+        return "Pleas enter an email";
+      }
+    },
   },
   {
     type: "number",
     name: "managerNum",
     message: "What is the manager's office number?",
+    validate: (answer) => {
+      if (isNaN(answer)) {
+        return "Pleas enter a number";
+      } else {
+        return true;
+      }
+    },
   },
   {
     type: "rawlist",
@@ -42,11 +61,25 @@ const engineerQuestions = [
     type: "number",
     name: "engineerId",
     message: "What is the engineer's employ ID?",
+    validate: (answer) => {
+      if (isNaN(answer)) {
+        return "Pleas enter a number";
+      } else {
+        return true;
+      }
+    },
   },
   {
     type: "input",
     name: "engineerEmail",
     message: "What is the engineer's email?",
+    validate: (answer) => {
+      if (answer.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)) {
+        return true;
+      } else {
+        return "Pleas enter an email";
+      }
+    },
   },
   {
     type: "input",
@@ -68,14 +101,28 @@ const internQuestions = [
     message: "What is the intern's name?",
   },
   {
-    type: "number",
+    type: "input",
     name: "internId",
     message: "What is the intern's employ ID?",
+    validate: (answer) => {
+      if (isNaN(answer)) {
+        return "Pleas enter a number";
+      } else {
+        return true;
+      }
+    },
   },
   {
     type: "input",
     name: "internEmail",
     message: "What is the intern's email?",
+    validate: (answer) => {
+      if (answer.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)) {
+        return true;
+      } else {
+        return "Pleas enter an email";
+      }
+    },
   },
   {
     type: "input",
