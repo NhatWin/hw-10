@@ -8,6 +8,8 @@ let leadManager = {};
 const engineerTeam = [];
 const internTeam = [];
 
+let engineerCard = "";
+
 const fs = require("fs");
 const { request } = require("http");
 
@@ -158,14 +160,15 @@ const createTeam = (data) => {
   if (data.teamMember === "engineer") {
     prompt(engineerQuestions).then((data) => {
       saveTeam(data);
-      creatTeamCard(data);
+      createTeam(data);
     });
   } else if (data.teamMember === "intern") {
     prompt(internQuestions).then((data) => {
       saveTeam(data);
-      creatTeamCard(data);
+      createTeam(data);
     });
   } else {
+    engineerTeam.forEach(createEngineerCard);
     writeToFile("team.html");
     console.log("All done!");
   }
@@ -199,6 +202,17 @@ const createLeadCard = (data) => {
   <p>ID: ${data.id}</p>
   <p>Email: ${data.email}</p>
   <p>Office #: ${data.num}</p>
+</div>`;
+};
+
+const createEngineerCard = (data) => {
+  engineerCard += `<div class="team">
+<h2>
+  <img src="./Assets/engineer.png" alt="manager icon" width="40" />${data.name}
+</h2>
+<p>ID: ${data.id}</p>
+<p>Email: ${data.email}</p>
+<p>GitHub: ${data.git}</p>
 </div>`;
 };
 
@@ -243,14 +257,7 @@ function writeToFile(fileName) {
       </section>
       <hr />
       <main>
-        <div class="team">
-          <h2>
-            <img src="./Assets/engineer.png" alt="manager icon" width="40" />Nhat
-          </h2>
-          <p>ID: 2</p>
-          <p>Email: nhat0933@gmail.com</p>
-          <p>GitHub: NhatWin</p>
-        </div>
+        ${engineerCard}
         <div class="team">
           <h2>
             <img src="./Assets/intern.png" alt="manager icon" width="40" />Nhat
