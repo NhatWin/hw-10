@@ -8,7 +8,7 @@ let leadManager = {};
 const engineerTeam = [];
 const internTeam = [];
 
-let engineerCard = "";
+let cards = "";
 
 const fs = require("fs");
 const { request } = require("http");
@@ -169,6 +169,7 @@ const createTeam = (data) => {
     });
   } else {
     engineerTeam.forEach(createEngineerCard);
+    internTeam.forEach(createInternCard);
     writeToFile("team.html");
     console.log("All done!");
   }
@@ -206,13 +207,24 @@ const createLeadCard = (data) => {
 };
 
 const createEngineerCard = (data) => {
-  engineerCard += `<div class="team">
+  cards += `<div class="team">
 <h2>
   <img src="./Assets/engineer.png" alt="manager icon" width="40" />${data.name}
 </h2>
 <p>ID: ${data.id}</p>
 <p>Email: ${data.email}</p>
 <p>GitHub: ${data.git}</p>
+</div>`;
+};
+
+const createInternCard = (data) => {
+  cards += `<div class="team">
+  <h2>
+    <img src="./Assets/intern.png" alt="manager icon" width="40" />${data.name}
+  </h2>
+  <p>ID: ${data.id}</p>
+  <p>Email: ${data.email}</p>
+  <p>School: ${data.school}</p>
 </div>`;
 };
 
@@ -257,7 +269,7 @@ function writeToFile(fileName) {
       </section>
       <hr />
       <main>
-        ${engineerCard}
+        ${cards}
         <div class="team">
           <h2>
             <img src="./Assets/intern.png" alt="manager icon" width="40" />Nhat
