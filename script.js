@@ -11,7 +11,6 @@ const internTeam = [];
 let cards = "";
 
 const fs = require("fs");
-const { request } = require("http");
 
 const leaderQuestions = [
   {
@@ -171,7 +170,6 @@ const createTeam = (data) => {
     engineerTeam.forEach(createEngineerCard);
     internTeam.forEach(createInternCard);
     writeToFile("team.html");
-    console.log("All done!");
   }
 };
 
@@ -270,13 +268,6 @@ function writeToFile(fileName) {
       <hr />
       <main>
         ${cards}
-        <div class="team">
-          <h2>
-            <img src="./Assets/intern.png" alt="manager icon" width="40" />Nhat
-          </h2>
-          <p>ID: 2</p>
-          <p>Email: nhat0933@gmail.com</p>
-          <p>School: WashU</p>
         </div>
       </main>
       <script
